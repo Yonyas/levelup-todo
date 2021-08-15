@@ -1,3 +1,3 @@
-todo project 입니다.
+Todo project 입니다.
 
 스택 : typeScript, emotion, jest
