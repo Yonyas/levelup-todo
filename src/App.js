@@ -1,5 +1,7 @@
+import Test from './Test.js';
+
 function App() {
-  return <div>Hi</div>;
+  return <Test />;
 }
 
 export default App;
