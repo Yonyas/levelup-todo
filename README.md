@@ -1,3 +1,3 @@
-Todo project 입니다.
+Levelup-Todo project 입니다.
 
-스택 : typeScript, emotion, jest
+스택 : TypeScript, Emotion, Jest
