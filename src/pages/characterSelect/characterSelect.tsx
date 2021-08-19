@@ -1,5 +1,13 @@
 import React from 'react';
+import NavBar from '../../components/navBar';
 
-export default function characterSelect() {
-  return <div>캐릭터선택창</div>;
-}
+const CharacterSelect = () => {
+  return (
+    <>
+      <NavBar />
+      <div>캐릭터선택창</div>
+    </>
+  );
+};
+
+export default CharacterSelect;
