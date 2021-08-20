@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
 import styled from '@emotion/styled';
 
 const Nav = styled.nav`
@@ -7,15 +6,15 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  border-bottom: 1px solid gray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 
 const Login = styled.div`
   color: #fff;
-  background-color: #c61d2a;
+  background-color: ${props => props.theme.mainRedColor};
   padding: 10px;
   &:hover {
-    background-color: black;
+    background-color: ${props => props.theme.mainRedDarkColor};
     cursor: pointer;
   }
 `;
