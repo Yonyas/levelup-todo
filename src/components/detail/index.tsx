@@ -45,12 +45,12 @@ const Detail = () => {
         직업
         <Button>
           <span aria-label="warrior" role="img">
-            전사⚔️
+            전사 ⚔️
           </span>
         </Button>
         <Button>
           <span aria-label="sorcerer" role="img">
-            법사🪄
+            법사 🪄
           </span>
         </Button>
       </Select>
@@ -58,18 +58,18 @@ const Detail = () => {
         종족
         <Button>
           <span aria-label="human" role="img">
-            인간🧑‍🦲
+            인간 🧑‍🦲
           </span>
         </Button>
         <Button>
           <span aria-label="alien" role="img">
-            외계인👽
+            외계인 👽
           </span>
         </Button>
       </Select>
       <div css={{ display: 'flex', justifyContent: 'space-around' }}>
-        <RandomButton>Random</RandomButton>
-        <RandomButton>Finish</RandomButton>
+        <RandomButton>RANDOM</RandomButton>
+        <RandomButton>FINISH</RandomButton>
       </div>
     </DetailView>
   );
