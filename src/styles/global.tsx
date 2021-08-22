@@ -5,6 +5,14 @@ const style = css`
    v2.0 | 20110126
    License: none (public domain)
   */
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 
   html,
   body,
@@ -93,7 +101,6 @@ const style = css`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    box-sizing: border-box;
   }
   /* HTML5 display-role reset for older browsers */
   article,
@@ -130,6 +137,28 @@ const style = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  button {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+  }
+
+  button:hover {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+  }
+
+  button:active {
+    outline: none;
+    border: none;
+  }
+
+  button:focus {
+    outline: 0;
   }
 `;
 

@@ -8,8 +8,11 @@ export const size = {
 
 const theme = {
   //color
-  mainRedColor: '#C61B2A',
+  mainRedColor: '#C71010',
   mainRedDarkColor: '#AF161C',
+  mainBackgroundColor: '#325ED9',
+  hoverColor: '#FF2E2E',
+  selectedColor: '#007A1D',
 
   //media query
   mq: {
