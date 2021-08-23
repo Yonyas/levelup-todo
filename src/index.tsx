@@ -2,19 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import { ThemeProvider } from '@emotion/react';
+import reducer from './modules/creater';
 import theme from './styles/theme';
 import GlobalStyle from './styles/global';
 
 import App from './components/App';
 
+const store = createStore(reducer);
+
 ReactDOM.render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
