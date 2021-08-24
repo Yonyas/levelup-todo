@@ -29,9 +29,7 @@ const CharacterSelect = () => {
           <CharacterView />
           <CharacterName placeholder="캐릭터명을 입력하세요" />
         </div>
-        <div>
-          <Detail />
-        </div>
+        <Detail />
       </Main>
     </>
   );

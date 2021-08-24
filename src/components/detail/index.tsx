@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
+import Select from '../select';
+import { Button } from '../../styles/button';
 
 const DetailView = styled.div`
   display: flex;
@@ -12,28 +14,7 @@ const DetailView = styled.div`
   font-size: 1.3rem;
 `;
 
-const Select = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const Button = styled.button`
-  margin: 10px;
-  height: 35px;
-  width: 110px;
-  background-color: ${props => props.theme.mainRedColor};
-  cursor: pointer;
-  font-size: 1.2rem;
-  box-shadow: 2px 2px;
-
-  &:hover {
-    background-color: ${props => props.theme.hoverColor};
-    color: #fff;
-  }
-`;
-
-const RandomButton = styled(Button)`
+const WideButton = styled(Button)`
   width: 120px;
   height: 40px;
 `;
@@ -41,35 +22,11 @@ const RandomButton = styled(Button)`
 const Detail = () => {
   return (
     <DetailView>
-      <Select>
-        직업
-        <Button>
-          <span aria-label="warrior" role="img">
-            전사 ⚔️
-          </span>
-        </Button>
-        <Button>
-          <span aria-label="sorcerer" role="img">
-            법사 🪄
-          </span>
-        </Button>
-      </Select>
-      <Select>
-        종족
-        <Button>
-          <span aria-label="human" role="img">
-            인간 🧑‍🦲
-          </span>
-        </Button>
-        <Button>
-          <span aria-label="alien" role="img">
-            외계인 👽
-          </span>
-        </Button>
-      </Select>
+      <Select title="직업" subTitle={['전사 ⚔️', '법사 🪄']} />
+      <Select title="종족" subTitle={['인간 👨‍🦲', '외계인 👽']} />
       <div css={{ display: 'flex', justifyContent: 'space-around' }}>
-        <RandomButton>RANDOM</RandomButton>
-        <RandomButton>FINISH</RandomButton>
+        <WideButton>RANDOM</WideButton>
+        <WideButton>FINISH</WideButton>
       </div>
     </DetailView>
   );
