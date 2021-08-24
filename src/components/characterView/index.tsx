@@ -51,13 +51,14 @@ const CharacterView = () => {
   const job: string = useSelector((state: CharacterState) => state.job);
   const race: string = useSelector((state: CharacterState) => state.race);
   const [src, setSrc] = useState<string>('/assets/전사파랑사람.png');
+
   const getImg = (clickedJob: string, clickedRace: string) => {
     if (clickedJob === 'warrior' && clickedRace === 'human') {
       return setSrc('/assets/전사파랑사람.png');
     } else if (clickedJob === 'warrior' && clickedRace === 'alien') {
       return setSrc('/assets/전사파랑외계인.png');
     } else if (clickedJob === 'sorcerer' && clickedRace === 'human') {
-      return setSrc('/assets/법사빨간사람.png');
+      return setSrc('/assets/법사빨강사람.png');
     } else if (clickedJob === 'sorcerer' && clickedRace === 'alien')
       return setSrc('/assets/법사빨강외계인.png');
   };

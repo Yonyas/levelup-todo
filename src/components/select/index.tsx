@@ -18,23 +18,11 @@ type SelectProps = {
 const Select = ({ title, subTitle }: SelectProps) => {
   const dispatch = useDispatch();
 
-  const onClickWarrior = () => {
-    dispatch(toWarrior());
-  };
-  const onClickSorcerer = () => {
-    dispatch(toSorcerer());
-  };
-  const onClickHuman = () => {
-    dispatch(toHuman());
-  };
-  const onClickAlien = () => {
-    dispatch(toAlien());
-  };
   const onClickSelectBtn = (trait: string | undefined) => () => {
-    if (trait === '전사') return onClickWarrior();
-    if (trait === '법사') return onClickSorcerer();
-    if (trait === '인간') return onClickHuman();
-    if (trait === '외계인') return onClickAlien();
+    if (trait === '전사') return dispatch(toWarrior());
+    if (trait === '법사') return dispatch(toSorcerer());
+    if (trait === '인간') return dispatch(toHuman());
+    if (trait === '외계인') return dispatch(toAlien());
   };
   return (
     <SelectTab>
