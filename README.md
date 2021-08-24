@@ -1,6 +1,6 @@
 Levelup-Todo project 입니다.
 
-스택 : TypeScript, Emotion, Jest
+스택 : TypeScript, Emotion, Jest, React, Redux
 
 ### CRA vs next.js
 
@@ -17,8 +17,8 @@ CRA는 설정할 것이 거의 없다. 그래서 편하다.
 [컬러 어도비사이트](https://color.adobe.com/ko/create/color-wheel)를 이용했다. 색 하나를 지정하면 어울리는 색들을 알려준다.
 
 ## 캐릭터선택 페이지
-<img width="797" alt="스크린샷 2021-08-22 오후 4 26 35" src="https://user-images.githubusercontent.com/60434382/130346374-e8f89772-7b80-4d8e-a2ca-eb60133e1587.png">
 
+<img width="797" alt="스크린샷 2021-08-22 오후 4 26 35" src="https://user-images.githubusercontent.com/60434382/130346374-e8f89772-7b80-4d8e-a2ca-eb60133e1587.png">
 
 ### 로그아웃 상태에서 캐릭터 저장하기
 

@@ -6,42 +6,42 @@ const RANDOM = 'creater/RANDOM' as const;
 const NEXTCLOTHES = 'creater/NEXTCLOTEHS' as const;
 const PREVCLOTHES = 'creater/PREVCLOTEHS' as const;
 
-export const human = () => ({
+export const toHuman = () => ({
   type: HUMAN,
 });
 
-export const alien = () => ({
+export const toAlien = () => ({
   type: ALIEN,
 });
 
-export const warrior = () => ({
+export const toWarrior = () => ({
   type: WARRIOR,
 });
 
-export const sorcerer = () => ({
+export const toSorcerer = () => ({
   type: SORCERER,
 });
 
-export const random = () => ({
+export const toRandom = () => ({
   type: RANDOM,
 });
 
-export const nextclothes = () => ({
+export const toNextclothes = () => ({
   type: NEXTCLOTHES,
 });
 
-export const prevclothes = () => ({
+export const toPrevclothes = () => ({
   type: PREVCLOTHES,
 });
 
 type CreaterAction =
-  | ReturnType<typeof human>
-  | ReturnType<typeof alien>
-  | ReturnType<typeof warrior>
-  | ReturnType<typeof sorcerer>
-  | ReturnType<typeof random>
-  | ReturnType<typeof nextclothes>
-  | ReturnType<typeof prevclothes>;
+  | ReturnType<typeof toHuman>
+  | ReturnType<typeof toAlien>
+  | ReturnType<typeof toWarrior>
+  | ReturnType<typeof toSorcerer>
+  | ReturnType<typeof toRandom>
+  | ReturnType<typeof toNextclothes>
+  | ReturnType<typeof toPrevclothes>;
 
 type CreaterState = {
   job: string;
@@ -80,3 +80,4 @@ function creater(
 }
 
 export default creater;
+export type CharacterState = ReturnType<typeof creater>;
