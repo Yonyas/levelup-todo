@@ -25,3 +25,44 @@ CRA는 설정할 것이 거의 없다. 그래서 편하다.
 Cookie, Local storage, Session storage 중 고민.
 일단 다른 탭마다 다른 캐릭터가 저장되게 하는건 막고 싶어서 session storage는 탈락.
 로컬스토리지는 plain text로 저장되어 client-side에서 직접 확인이 가능해서 보안문제가 있지만 캐릭터선택에 어떤 보안문제가 있을 것 같지 않아서 선택.
+
+## Troubles
+
+### 1. Type error
+
+```js
+const createTraits = (): (string | number)[] => {
+  let traits = [];
+  traits.push(Math.floor(Math.random() * 2) ? '전사' : '법사');
+  traits.push(Math.floor(Math.random() * 2) ? '인간' : '외계인');
+  traits.push(Math.floor(Math.random() * 2) ? 0 : 1);
+  return traits;
+};
+
+type jobType = '전사' | '법사';
+type raceType = '인간' | '외계인';
+type clothesType = 0 | 1;
+
+
+class Character {
+  job: jobType;
+  race: raceType;
+  clothes: clothesType;
+
+  private constructor(job: jobType, race: raceType, clothes: clothesType) {
+    this.job = job;
+    this.race = race;
+    this.clothes = clothes;
+  }
+  static createRandomCharacter() {
+	const [job, race, clothes] = createTraits();
+	return new Character(job, race, clothes);
+	//error: job 에는 string만 들어와야하는데 string|number라니까 에러가 뜬다
+  }
+}
+```
+
+> Argument of type 'string | number' is not assignable to parameter of type 'jobType'.Type 'string' is not assignable to type 'jobType'.
+
+첫번째줄의 `(string | number)[]` 는 지정해주지 않아도 저렇게 타입추론이 된다.  
+저 부분을 : any로 변경하면 해결된다.
