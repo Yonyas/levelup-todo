@@ -32,7 +32,7 @@ Cookie, Local storage, Session storage 중 고민.
 
 ```js
 const createTraits = (): (string | number)[] => {
-  let traits = [];
+  const traits = [];
   traits.push(Math.floor(Math.random() * 2) ? '전사' : '법사');
   traits.push(Math.floor(Math.random() * 2) ? '인간' : '외계인');
   traits.push(Math.floor(Math.random() * 2) ? 0 : 1);
@@ -43,23 +43,20 @@ type jobType = '전사' | '법사';
 type raceType = '인간' | '외계인';
 type clothesType = 0 | 1;
 
-
-class Character {
-  job: jobType;
-  race: raceType;
-  clothes: clothesType;
-
+export class Character {
   private constructor(job: jobType, race: raceType, clothes: clothesType) {
     this.job = job;
     this.race = race;
     this.clothes = clothes;
   }
-  static createRandomCharacter() {
-	const [job, race, clothes] = createTraits();
-	return new Character(job, race, clothes);
-	//error: job 에는 string만 들어와야하는데 string|number라니까 에러가 뜬다
+  createRandomCharacter(): Character {
+    const [job, race, clothes]: [jobType, raceType, clothesType] =
+      createTraits();
+    return new Character(job, race, clothes);
+    //error: job 에는 string만 들어와야하는데 string|number라니까 에러가 뜬다
   }
 }
+
 ```
 
 > Argument of type 'string | number' is not assignable to parameter of type 'jobType'.Type 'string' is not assignable to type 'jobType'.

@@ -1,8 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
-import { toHuman, toAlien, toWarrior, toSorcerer } from '../../modules/creater';
-import { Button } from '../../styles/button';
+import {
+  toHuman,
+  toAlien,
+  toWarrior,
+  toSorcerer,
+} from '../../../modules/creater';
+import { Button } from '../../../styles/button';
 
 const SelectTab = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
-import Select from '../select';
-import { Button } from '../../styles/button';
+import { Button } from '../../../styles/button';
+import Select from './Select';
 
 const DetailView = styled.div`
   display: flex;

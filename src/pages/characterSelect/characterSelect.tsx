@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
-import NavBar from '../../components/navBar';
-import CharacterView from '../../components/characterView';
-import Detail from '../../components/detail';
+import NavBar from './components/NavBar';
+import Detail from './components/Detail';
+import CharacterView from './components/CharacterView';
 
 const Main = styled.div`
   width: 100%;
