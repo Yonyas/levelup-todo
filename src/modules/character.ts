@@ -10,7 +10,11 @@ export type jobType = '전사' | '법사';
 export type raceType = '인간' | '외계인';
 export type clothesType = 0 | 1;
 export class Character {
-  private constructor(job: jobType, race: raceType, clothes: clothesType) {
+  private constructor(
+    public job: jobType,
+    public race: raceType,
+    public clothes: clothesType
+  ) {
     this.job = job;
     this.race = race;
     this.clothes = clothes;
