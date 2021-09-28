@@ -1,3 +1,5 @@
+import { Character } from './character';
+
 const HUMAN = 'creater/HUMAN' as const;
 const ALIEN = 'creater/ALIEN' as const;
 const WARRIOR = 'creater/WARRIOR' as const;
@@ -43,22 +45,9 @@ type CreaterAction =
   | ReturnType<typeof toNextclothes>
   | ReturnType<typeof toPrevclothes>;
 
-type CreaterState = {
-  job: string;
-  race: string;
-  clothes: number;
-};
+const initialState = Character.createRandomCharacter();
 
-const initialState: CreaterState = {
-  job: 'warrior',
-  race: 'human',
-  clothes: 0,
-};
-
-function creater(
-  state: CreaterState = initialState,
-  action: CreaterAction
-): CreaterState {
+function creater(state = initialState, action: CreaterAction): any {
   switch (action.type) {
     case HUMAN:
       return { ...state, race: 'human' };

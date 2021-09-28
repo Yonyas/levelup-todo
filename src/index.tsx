@@ -9,7 +9,7 @@ import reducer from './modules/creater';
 import theme from './styles/theme';
 import GlobalStyle from './styles/global';
 
-import App from './components/App';
+import App from './App';
 
 const store = createStore(reducer);
 

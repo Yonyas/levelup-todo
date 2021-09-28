@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
-import { CharacterState } from '../../modules/creater';
+import { CharacterState } from '../../../modules/creater';
 
 const View = styled.div`
   position: relative;
