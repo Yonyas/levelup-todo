@@ -1,13 +1,13 @@
 const createTraits = (): any => {
   const traits = [];
-  traits.push(Math.floor(Math.random() * 2) ? '전사' : '법사');
-  traits.push(Math.floor(Math.random() * 2) ? '인간' : '외계인');
+  traits.push(Math.floor(Math.random() * 2) ? 'warrior' : 'sorcerer');
+  traits.push(Math.floor(Math.random() * 2) ? 'human' : 'alien');
   traits.push(Math.floor(Math.random() * 2) ? 0 : 1);
   return traits;
 };
 
-export type jobType = '전사' | '법사';
-export type raceType = '인간' | '외계인';
+export type jobType = 'warrior' | 'sorcerer';
+export type raceType = 'human' | 'alien';
 export type clothesType = 0 | 1;
 export class Character {
   private constructor(

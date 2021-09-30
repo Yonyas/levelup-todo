@@ -3,7 +3,7 @@ import { Character } from './character';
 const HUMAN = 'creater/HUMAN' as const;
 const ALIEN = 'creater/ALIEN' as const;
 const WARRIOR = 'creater/WARRIOR' as const;
-const SORCERER = 'creater/SORCERROR' as const;
+const SORCERER = 'creater/SORCERER' as const;
 const RANDOM = 'creater/RANDOM' as const;
 const NEXTCLOTHES = 'creater/NEXTCLOTEHS' as const;
 const PREVCLOTHES = 'creater/PREVCLOTEHS' as const;
@@ -46,6 +46,8 @@ type CreaterAction =
   | ReturnType<typeof toPrevclothes>;
 
 const initialState = Character.createRandomCharacter();
+
+console.log(`initialState`, initialState);
 
 function creater(state = initialState, action: CreaterAction): any {
   switch (action.type) {
