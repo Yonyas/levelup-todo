@@ -47,8 +47,6 @@ type CreaterAction =
 
 const initialState = Character.createRandomCharacter();
 
-console.log(`initialState`, initialState);
-
 function creater(state = initialState, action: CreaterAction): any {
   switch (action.type) {
     case HUMAN:

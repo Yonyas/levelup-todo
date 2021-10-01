@@ -54,23 +54,26 @@ const CharacterView = () => {
 
   //job, race에 따라 imgSrc return
   const getImgSrc = (characterJob: string, characterRace: string): string => {
-    const bundle = [characterJob, characterRace];
-    switch (JSON.stringify(bundle)) {
-      case '["warrior","human"]':
+    switch (true) {
+      case characterJob === 'warrior' && characterRace === 'human':
         return '/assets/전사파랑사람.png';
-      case '["warrior","alien"]':
+      case characterJob === 'warrior' && characterRace === 'alien':
         return '/assets/전사파랑외계인.png';
-      case '["sorcerer","human"]':
+      case characterJob === 'sorcerer' && characterRace === 'human':
         return '/assets/법사빨강사람.png';
-      case '["sorcerer","alien"]':
+      case characterJob === 'sorcerer' && characterRace === 'alien':
         return '/assets/법사빨강외계인.png';
       default:
-        return '/assets/전사파랑사람.png';
+        throw new Error(`unknown job or race`);
     }
   };
 
   useEffect(() => {
-    setSrc(getImgSrc(job, race));
+    try {
+      setSrc(getImgSrc(job, race));
+    } catch (e: unknown) {
+      console.log(e);
+    }
   }, [job, race]);
 
   return (
