@@ -63,3 +63,71 @@ export class Character {
 
 첫번째줄의 `(string | number)[]` 는 지정해주지 않아도 저렇게 타입추론이 된다.  
 저 부분을 : any로 변경하면 해결된다.
+
+### 2. \<CharacterView> getImgSrc 함수 : job, race 에 따라 img src 불러오기
+
+character.ts 에서 createRandomCharacter()으르 실행시키면
+
+```
+{job: 'warrior', race: 'human'}
+```
+
+같은 객체가 생성된다. 이 객체를 initialState로 해서
+\<CharacterView>에서 객체내용에 맞게끔 imgSrc를 받아온다.
+
+그 함수가 getImgSrc함수이다.  
+처음에는 로직분리를 하지 않고 getImgSrc함수에서 바로 useState값을 변경했다.  
+그 후에는 아래와 같이 일단
+
+```ts
+const getImgSrc = (characterJob: string, characterRace: string): string => {
+  const bundle = [characterJob, characterRace];
+  switch (JSON.stringify(bundle)) {
+    case '["warrior","human"]':
+      return '/assets/전사파랑사람.png';
+    case '["warrior","alien"]':
+      return '/assets/전사파랑외계인.png';
+    case '["sorcerer","human"]':
+      return '/assets/법사빨강사람.png';
+    case '["sorcerer","alien"]':
+      return '/assets/법사빨강외계인.png';
+    default:
+      return '/assets/전사파랑사람.png';
+  }
+};
+```
+
+stringify를 하지 않고
+
+```
+case ['warrior', 'human']
+```
+
+위처럼 하면 정상적으로 실행되지 않는다. 아마 es6의 계산된 속성명으로 적용이 되어서 그런 것 같다.  
+처음에는 stringify를 하지 않은 bundle을 switch에 넣어줬다. 그렇게 되면
+
+```
+case 'warriorhuman'
+```
+
+위와 같이 가독성이 너무 떨어진다.  
+그래서 stringify를 해봤는데 가독성이 조금 나아진 것 같기는 하지만 좋은 방법은 아닌 것 같다.
+
+최종코드는 아래와 같이 수정했다. 이렇게 수정하고 나니까 위 코드는 너무 부끄러웠다. 왜 저렇게 한걸까. 근데 이렇게 짤바에야 if else문이 나은것 같기도 하고... 그렇다.
+
+```js
+const getImgSrc = (characterJob: string, characterRace: string): string => {
+  switch (true) {
+    case characterJob === 'warrior' && characterRace === 'human':
+      return '/assets/전사파랑사람.png';
+    case characterJob === 'warrior' && characterRace === 'alien':
+      return '/assets/전사파랑외계인.png';
+    case characterJob === 'sorcerer' && characterRace === 'human':
+      return '/assets/법사빨강사람.png';
+    case characterJob === 'sorcerer' && characterRace === 'alien':
+      return '/assets/법사빨강외계인.png';
+    default:
+      throw new Error(`unknown job or race`);
+  }
+};
+```

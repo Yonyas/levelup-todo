@@ -52,18 +52,28 @@ const CharacterView = () => {
   const race: string = useSelector((state: CharacterState) => state.race);
   const [src, setSrc] = useState<string>('/assets/전사파랑사람.png');
 
-  const getImg = (clickedJob: string, clickedRace: string) => {
-    if (clickedJob === 'warrior' && clickedRace === 'human') {
-      return setSrc('/assets/전사파랑사람.png');
-    } else if (clickedJob === 'warrior' && clickedRace === 'alien') {
-      return setSrc('/assets/전사파랑외계인.png');
-    } else if (clickedJob === 'sorcerer' && clickedRace === 'human') {
-      return setSrc('/assets/법사빨강사람.png');
-    } else if (clickedJob === 'sorcerer' && clickedRace === 'alien')
-      return setSrc('/assets/법사빨강외계인.png');
+  //job, race에 따라 imgSrc return
+  const getImgSrc = (characterJob: string, characterRace: string): string => {
+    switch (true) {
+      case characterJob === 'warrior' && characterRace === 'human':
+        return '/assets/전사파랑사람.png';
+      case characterJob === 'warrior' && characterRace === 'alien':
+        return '/assets/전사파랑외계인.png';
+      case characterJob === 'sorcerer' && characterRace === 'human':
+        return '/assets/법사빨강사람.png';
+      case characterJob === 'sorcerer' && characterRace === 'alien':
+        return '/assets/법사빨강외계인.png';
+      default:
+        throw new Error(`unknown job or race`);
+    }
   };
+
   useEffect(() => {
-    getImg(job, race);
+    try {
+      setSrc(getImgSrc(job, race));
+    } catch (e: unknown) {
+      console.log(e);
+    }
   }, [job, race]);
 
   return (
