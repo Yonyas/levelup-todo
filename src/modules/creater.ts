@@ -66,7 +66,7 @@ function creater(state = initialState, action: CreaterAction): Character {
     case PREVCLOTHES:
       return { ...state, clothes: 0 };
     default:
-      throw new Error(`invalid input`);
+      return initialState;
   }
 }
 
