@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 import { CharacterState } from '../../../modules/creater';
+import { attributeState } from '../../../modules/character';
 
 const View = styled.div`
   position: relative;
@@ -47,13 +48,18 @@ const Character = styled.img`
   transform: translateY(-50%) translateX(-50%);
 `;
 
-const CharacterView = () => {
-  const job: string = useSelector((state: CharacterState) => state.job);
-  const race: string = useSelector((state: CharacterState) => state.race);
+const CharacterView: React.FC = (): ReactElement => {
+  const job: attributeState = useSelector((state: CharacterState) => state.job);
+  const race: attributeState = useSelector(
+    (state: CharacterState) => state.race
+  );
   const [src, setSrc] = useState<string>('/assets/전사파랑사람.png');
 
   //job, race에 따라 imgSrc return
-  const getImgSrc = (characterJob: string, characterRace: string): string => {
+  const getImgSrc = (
+    characterJob: attributeState,
+    characterRace: attributeState
+  ) => {
     switch (true) {
       case characterJob === 'warrior' && characterRace === 'human':
         return '/assets/전사파랑사람.png';

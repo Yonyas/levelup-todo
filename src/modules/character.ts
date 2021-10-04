@@ -10,8 +10,13 @@ export type jobType = 'warrior' | 'sorcerer';
 export type raceType = 'human' | 'alien';
 export type clothesType = 0 | 1;
 
-type attributeState = jobType | raceType | clothesType | undefined;
-type attributeArrayState = (jobType | raceType | clothesType | undefined)[];
+export type attributeState = jobType | raceType | clothesType | undefined;
+export type attributeArrayState = (
+  | jobType
+  | raceType
+  | clothesType
+  | undefined
+)[];
 export class Character {
   private constructor(
     public job: attributeState,
