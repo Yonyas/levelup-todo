@@ -8,31 +8,33 @@ const RANDOM = 'creater/RANDOM' as const;
 const NEXTCLOTHES = 'creater/NEXTCLOTEHS' as const;
 const PREVCLOTHES = 'creater/PREVCLOTEHS' as const;
 
-export const toHuman = () => ({
+type dispatchState = { type: string };
+
+export const toHuman = (): dispatchState => ({
   type: HUMAN,
 });
 
-export const toAlien = () => ({
+export const toAlien = (): dispatchState => ({
   type: ALIEN,
 });
 
-export const toWarrior = () => ({
+export const toWarrior = (): dispatchState => ({
   type: WARRIOR,
 });
 
-export const toSorcerer = () => ({
+export const toSorcerer = (): dispatchState => ({
   type: SORCERER,
 });
 
-export const toRandom = () => ({
+export const toRandom = (): dispatchState => ({
   type: RANDOM,
 });
 
-export const toNextclothes = () => ({
+export const toNextclothes = (): dispatchState => ({
   type: NEXTCLOTHES,
 });
 
-export const toPrevclothes = () => ({
+export const toPrevclothes = (): dispatchState => ({
   type: PREVCLOTHES,
 });
 
@@ -45,9 +47,9 @@ type CreaterAction =
   | ReturnType<typeof toNextclothes>
   | ReturnType<typeof toPrevclothes>;
 
-const initialState = Character.createRandomCharacter();
+const initialState: Character = Character.createRandomCharacter();
 
-function creater(state = initialState, action: CreaterAction): any {
+function creater(state = initialState, action: CreaterAction): Character {
   switch (action.type) {
     case HUMAN:
       return { ...state, race: 'human' };
@@ -64,7 +66,7 @@ function creater(state = initialState, action: CreaterAction): any {
     case PREVCLOTHES:
       return { ...state, clothes: 0 };
     default:
-      return state;
+      throw new Error(`invalid input`);
   }
 }
 
