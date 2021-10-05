@@ -162,7 +162,7 @@ const style = css`
   }
 `;
 
-const GlobalStyle = () => {
+const GlobalStyle: React.FC = () => {
   return <Global styles={style} />;
 };
 

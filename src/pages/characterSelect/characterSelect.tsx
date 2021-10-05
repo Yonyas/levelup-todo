@@ -20,7 +20,7 @@ const CharacterName = styled.input`
   padding: 5px 10px;
 `;
 
-const CharacterSelect = () => {
+const CharacterSelect: React.FC = () => {
   return (
     <>
       <NavBar />

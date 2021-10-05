@@ -19,7 +19,7 @@ const WideButton = styled(Button)`
   height: 40px;
 `;
 
-const Detail = () => {
+const Detail: React.FC = () => {
   return (
     <DetailView>
       <Select title="직업" subTitle={['전사 ⚔️', '법사 🪄']} />

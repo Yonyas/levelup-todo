@@ -20,7 +20,7 @@ type SelectProps = {
   subTitle: string[];
 };
 
-const Select = ({ title, subTitle }: SelectProps) => {
+const Select: React.FC<SelectProps> = ({ title, subTitle }: SelectProps) => {
   const dispatch = useDispatch();
 
   const onClickSelectBtn = (trait: string | undefined) => () => {

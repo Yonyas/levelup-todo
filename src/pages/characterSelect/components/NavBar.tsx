@@ -19,7 +19,7 @@ const Login = styled.div`
   }
 `;
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <Nav>
       <img
