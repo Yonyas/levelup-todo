@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
+import { useHistory } from 'react-router-dom';
 import { Button } from '../../../styles/button';
 import Select from './Select';
 
@@ -20,13 +21,19 @@ const WideButton = styled(Button)`
 `;
 
 const Detail: React.FC = () => {
+  const history = useHistory();
+
+  const goToNotePage = () => {
+    history.push('/note');
+  };
+
   return (
     <DetailView>
       <Select title="직업" subTitle={['전사 ⚔️', '법사 🪄']} />
       <Select title="종족" subTitle={['인간 👨‍🦲', '외계인 👽']} />
       <div css={{ display: 'flex', justifyContent: 'space-around' }}>
         <WideButton>RANDOM</WideButton>
-        <WideButton>FINISH</WideButton>
+        <WideButton onClick={goToNotePage}>FINISH</WideButton>
       </div>
     </DetailView>
   );
