@@ -7,12 +7,22 @@ export const size = {
 };
 
 const theme = {
-  //color
+  //first page color
   mainRedColor: '#C71010',
   mainRedDarkColor: '#AF161C',
   mainBackgroundColor: '#325ED9',
   hoverColor: '#FF2E2E',
   selectedColor: '#007A1D',
+
+  //note page color
+  noteBackgroundColor: '#eaedf7',
+  noteIconColor: 'gray',
+  noteIconHoverColor: '#4b4646',
+  noteBtnBackColor: '#5e2bf5',
+  noteBtnBackHoverColor: '#3917a0',
+  noteBtnColor: '#FFFF00',
+  noteBlockBackColor: '#FFF',
+  noteBlockShadowColor: '#9ea3a8',
 
   //media query
   mq: {

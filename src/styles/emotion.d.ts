@@ -7,6 +7,16 @@ declare module '@emotion/react' {
     mainBackgroundColor: string;
     hoverColor: string;
     selectedColor: string;
+
+    noteBackgroundColor: string;
+    noteIconColor: string;
+    noteIconHoverColor: string;
+    noteBtnBackColor: string;
+    noteBtnBackHoverColor: string;
+    noteBtnColor: string;
+    noteBlockBackColor: string;
+    noteBlockShadowColor: string;
+
     mq: {
       laptop: string;
       tablet: string;
